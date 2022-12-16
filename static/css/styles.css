@@ -1,0 +1,23 @@
+body {
+    margin-top: 50px;
+    background: #DCDCDC;
+}
+
+.sidebar-nav {
+    padding: 10px;
+    list-style: none;
+}
+
+.sidebar-nav .list-group-item {
+    background-color: #C0C0C0;
+    border-radius: 10px;
+}
+
+span.text {
+    color: rosybrown;
+}
+
+.link-to-page {
+    float: right;
+    margin: 0 2px 0 2px;
+}
