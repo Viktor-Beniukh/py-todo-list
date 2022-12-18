@@ -2,9 +2,6 @@
 
 Django project for day-to-day management of your tasks.
 
-## Demo
-
-![Website Interface](demo.png)
 
 ## Features
 

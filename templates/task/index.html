@@ -9,13 +9,13 @@
       <hr>
     </h1>
   </div>
-    <br>
-    <br>
+    <br><br>
 
   {% for task in page_obj %}
     <div class="container">
       <h5>
         {{ task.content }}
+
         {% if task.marks %} &nbsp;
           <small style="color: #008000"><em>Done</em></small>
           <button class="btn btn-secondary link-to-page"
@@ -32,11 +32,13 @@
 
         {% endif %}
       </h5>
+
       <p>Created: <em>{{ task.created_time }}</em>  &nbsp;
         {% if task.deadline %}
           <span class="text">Deadline: <em>{{ task.deadline }}</em></span>
         {% endif %}
       </p>
+
       <p>Tags:
         {% for tag in task.tags.all %} &nbsp;
           {{ tag.name }}
@@ -47,6 +49,6 @@
       <hr>
       <br>
     </div>
-
   {% endfor %}
+
 {% endblock %}
