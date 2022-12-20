@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="container">
+    <h1>
+      TODO list
+      <a href="{% url 'task:task-create' %}" class="btn btn-primary link-to-page">Add task</a>
+      <hr>
+    </h1>
+  </div>
+    <br><br>
+
+  {% for task in page_obj %}
+    <div class="container">
+      <h5>
+        {{ task.content }}
+
+        {% if task.is_marks %} &nbsp;
+          <small style="color: #008000"><em>Done</em></small>
+          <button class="btn btn-secondary link-to-page"
+                  onclick="location.href='{% url 'task:change-task-status' task.pk False %}'">
+            Undo
+          </button>
+
+        {% else %} &nbsp;
+          <small style="color: #DC143C"><em>Not done</em></small>
+          <button class="btn btn-success link-to-page"
+                  onclick="location.href='{% url 'task:change-task-status' task.pk True %}'">
+            Complete
+          </button>
+
+        {% endif %}
+      </h5>
+
+      <p>Created: <em>{{ task.created_time }}</em>  &nbsp;
+        {% if task.deadline %}
+          <span class="text">Deadline: <em>{{ task.deadline }}</em></span>
+        {% endif %}
+      </p>
+
+      <p>Tags:
+        {% for tag in task.tags.all %} &nbsp;
+          {{ tag.name }}
+        {% endfor %} &nbsp;
+        <a href="{% url 'task:task-update' pk=task.id %}">Update</a>
+        <a href="{% url 'task:task-delete' pk=task.id %}" style="color: red">Delete</a>
+      </p>
+      <hr>
+      <br>
+    </div>
+  {% endfor %}
+
+{% endblock %}
