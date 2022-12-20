@@ -34,8 +34,8 @@ class TaskTest(TestCase):
 
         for task_num in range(number_of_task):
             Task.objects.create(
-                content="Buy a car %s" % task_num,
-                created_time="2022-01-01 15:00 %s" % task_num,
+                content=f"'Buy a car' - {task_num}",
+                created_time=f"'2022-01-01 15:00' - {task_num}",
             )
 
     def test_main_page_url_exists_at_desired_location(self):
