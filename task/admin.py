@@ -5,8 +5,8 @@ from task.models import Task, Tag
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ("content", "created_time", "deadline", "marks")
-    list_filter = ("created_time", "marks")
+    list_display = ("content", "created_time", "deadline", "is_marks")
+    list_filter = ("created_time", "is_marks")
     search_fields = ("content",)
 
 
