@@ -16,7 +16,7 @@
       <h5>
         {{ task.content }}
 
-        {% if task.marks %} &nbsp;
+        {% if task.is_marks %} &nbsp;
           <small style="color: #008000"><em>Done</em></small>
           <button class="btn btn-secondary link-to-page"
                   onclick="location.href='{% url 'task:change-task-status' task.pk False %}'">

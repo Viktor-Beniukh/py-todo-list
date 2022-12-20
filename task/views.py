@@ -71,6 +71,6 @@ class TaskDeleteView(generic.DeleteView):
 
 def change_task_status(request, pk, status):
     task = Task.objects.get(pk=pk)
-    task.marks = status
+    task.is_marks = status
     task.save()
     return redirect("task:index")
